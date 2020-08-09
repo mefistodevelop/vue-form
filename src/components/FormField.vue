@@ -4,7 +4,7 @@
      <span class="form-field__label-header">
         {{ label }}
         <span class="form-field__star" v-if="required">*</span>
-        <small class="form-field__error" v-if="v.$error" >
+        <small class="form-field__error" v-if="v.$error && !v.$required" >
           Это поле обязательно для заполнения
         </small>
      </span>
@@ -14,7 +14,7 @@
         :type="type"
         :name="name" 
         :placeholder="placeholder"
-        v-model="fieldValue"
+        v-model.trim="fieldValue"
         @input="v.$touch()"
       >
     </label>

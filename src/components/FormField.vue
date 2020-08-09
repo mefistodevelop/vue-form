@@ -70,11 +70,14 @@
 
 
 <style lang="scss" scoped>
+  @import '../utils/_variables.scss';
+
   .form-field {
     min-width: 25.8rem;
     max-width: 40rem;
 
     &__label {
+      @include field-label;
       display: flex;
       flex-direction: column;
     }
@@ -94,23 +97,7 @@
     }
 
     &__input {
-      margin-top: .5rem;
-      width: 100%;
-      height: 4.4rem;
-      padding: 0 1.2rem;
-      border: 1px solid rgba(31,32,65,.25);
-      border-radius: 4px;
-      font-weight: 400;
-      font-size: 14px;
-
-      &::placeholder {
-        color: rgba(31,32,65,.25);
-      }
-
-      &:hover,
-      &:focus {
-        border-color: rgba(31,32,65,.5);
-      }
+      @include form-field;
     }
   }
 </style>

@@ -54,6 +54,10 @@
       />
     </div>
 
+    <div class="form__element">
+      <GenderRadio />
+    </div>
+
     <button type="submit">push</button>
   </form>
 </template>
@@ -62,7 +66,8 @@
   import { required} from 'vuelidate/lib/validators';
   import { length, firstCharIs } from '../utils/validators';
   import FormField from './FormField';
-  import PhoneField from './PhoneField';  
+  import PhoneField from './PhoneField';
+  import GenderRadio from './GenderRadio';
 
   export default {
     name: 'Form',
@@ -77,7 +82,7 @@
        },
       };
     },
-    components: { FormField, PhoneField },
+    components: { FormField, PhoneField, GenderRadio },
     validations: {
       form: {
         lastName: { required },

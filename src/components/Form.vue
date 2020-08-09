@@ -58,6 +58,13 @@
       <GenderRadio />
     </div>
 
+    <div class="form__element">
+      <Multiselect
+        v-model="form.clientGroup"
+        :v="$v.form.clientGroup"
+      />
+    </div>
+
     <button type="submit">push</button>
   </form>
 </template>
@@ -68,6 +75,7 @@
   import FormField from './FormField';
   import PhoneField from './PhoneField';
   import GenderRadio from './GenderRadio';
+  import Multiselect from './Multiselect';
 
   export default {
     name: 'Form',
@@ -79,10 +87,14 @@
          middleName: '',
          birthdate: '',
          phone: '',
+         clientGroup: [],
        },
       };
     },
-    components: { FormField, PhoneField, GenderRadio },
+    components: {
+      FormField, PhoneField, GenderRadio,
+      Multiselect,
+    },
     validations: {
       form: {
         lastName: { required },
@@ -94,6 +106,7 @@
           length: length(11),
           firstCharIs: firstCharIs(7),
         },
+        clientGroup: { required },
       },
     },
     methods: {

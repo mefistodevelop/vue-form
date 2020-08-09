@@ -90,8 +90,7 @@
     }
 
     &__star {
-      color: #ff0000;
-      margin: 0 .3rem;
+      @include required-mark;
     }
 
     &__error {

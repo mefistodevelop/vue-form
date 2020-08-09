@@ -44,11 +44,10 @@
       />
     </div>
     <div class="form__element">
-      <FormField
-        type="number"
+      <PhoneField
         label="Телефон"
         name="phone"
-        placeholder="Ваш номер телефона"
+        placeholder="7 123 456 78 90"
         v-model="form.phone"
         :v="$v.form.phone"
         required
@@ -60,8 +59,10 @@
 </template>
 
 <script>
-  import { required } from 'vuelidate/lib/validators';
+  import { required} from 'vuelidate/lib/validators';
+  import { length, firstCharIs } from '../utils/validators';
   import FormField from './FormField';
+  import PhoneField from './PhoneField';  
 
   export default {
     name: 'Form',
@@ -76,14 +77,18 @@
        },
       };
     },
-    components: { FormField },
+    components: { FormField, PhoneField },
     validations: {
       form: {
         lastName: { required },
         name: { required },
         middleName: {},
         birthdate: { required },
-        phone: { required },
+        phone: { 
+          required,
+          length: length(11),
+          firstCharIs: firstCharIs(7),
+        },
       },
     },
     methods: {

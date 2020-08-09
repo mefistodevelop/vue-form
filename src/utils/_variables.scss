@@ -3,6 +3,7 @@
 $inactive: rgba(31,32,65,.25);
 $hovered-field: rgba(31,32,65,.5);
 $accent-gradient: linear-gradient(180deg,#bc9cff,#8ba4f9);
+$accent: #bc9cff;
 
 
 //mixins
@@ -12,6 +13,16 @@ $accent-gradient: linear-gradient(180deg,#bc9cff,#8ba4f9);
   font-size: 1.2rem;
   text-transform: uppercase;
   color: #1f2041;
+}
+
+@mixin label-header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin required-mark {
+  color: #ff0000;
+  margin: 0 .3rem;
 }
 
 @mixin form-field {

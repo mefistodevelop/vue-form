@@ -84,6 +84,9 @@
       &:checked ~ .gender-radio__checkmark::after {
         display: block;
       }
+      &:focus  ~ .gender-radio__checkmark {
+        box-shadow: 0 0 2px 2px $accent;
+      }
     }
   }
 </style>

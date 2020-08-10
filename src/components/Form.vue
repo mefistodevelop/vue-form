@@ -59,9 +59,22 @@
     </div>
 
     <div class="form__element">
-      <Multiselect
+      <Selector
         v-model="form.clientGroup"
         :v="$v.form.clientGroup"
+        :options="groups"
+        placeholder="Группа клиентов"
+        required
+        multiple
+      />
+    </div>
+
+    <div class="form__element">
+      <Selector
+        v-model="form.clientDoctor"
+        :v="$v.form.clientDoctor"
+        :options="doctors"
+        placeholder="Лечащий врач"
       />
     </div>
 
@@ -70,30 +83,33 @@
 </template>
 
 <script>
-  import { required} from 'vuelidate/lib/validators';
+  import { required } from 'vuelidate/lib/validators';
   import { length, firstCharIs } from '../utils/validators';
   import FormField from './FormField';
   import PhoneField from './PhoneField';
   import GenderRadio from './GenderRadio';
-  import Multiselect from './Multiselect';
+  import Selector from './Selector';
 
   export default {
     name: 'Form',
     data() {
       return {
-       form: {
-         lastName: '',
-         name: '',
-         middleName: '',
-         birthdate: '',
-         phone: '',
-         clientGroup: [],
-       },
+        form: {
+          lastName: '',
+          name: '',
+          middleName: '',
+          birthdate: '',
+          phone: '',
+          clientGroup: [],
+          clientDoctor: '',
+        },
+        groups: ['VIP', 'Проблемные', 'ОМС'],
+        doctors: ['Иванов', 'Захаров', 'Чернышева'],
       };
     },
     components: {
       FormField, PhoneField, GenderRadio,
-      Multiselect,
+      Selector,
     },
     validations: {
       form: {
@@ -107,15 +123,14 @@
           firstCharIs: firstCharIs(7),
         },
         clientGroup: { required },
+        clientDoctor: {},
       },
     },
     methods: {
       submit() {
-        if (this.$v.$invalid) {
-          this.$v.$touch();
-          return;
-        }
-        alert('submited')
+        this.$v.$touch();
+        if (this.$v.$invalid) return;
+        alert('submited');
       },
     },
   };

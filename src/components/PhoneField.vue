@@ -7,11 +7,11 @@
         <small class="phone-field__error" v-show="v.$error && !v.$required">
           Это поле обязательно для заполнения
         </small>
-        <small class="phone-field__error" v-show="v.length">
+        <small class="phone-field__error" v-show="!v.length">
           Номер телефона должен быть 11 цифр
         </small>
-        <small class="phone-field__error" v-show="v.firstCharIs">
-          Номер телефона должен начинаться с цифры 7
+        <small class="phone-field__error" v-show="!v.firstCharIs">
+          Номер телефона должен начинаться с 7
         </small>
      </span>
      

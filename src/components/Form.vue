@@ -58,7 +58,7 @@
                 label="Телефон"
                 name="phone"
                 placeholder="7 123 456 78 90"
-                v-model="form.phone"
+                v-model="$v.form.phone.$model"
                 :v="$v.form.phone"
                 required
               />
@@ -253,7 +253,7 @@
 
 <script>
   import { required } from 'vuelidate/lib/validators';
-  // import { length, firstCharIs } from '../utils/validators';
+  import { length, firstCharIs } from '../utils/validators';
   import FormField from './FormField';
   import PhoneField from './PhoneField';
   import GenderRadio from './GenderRadio';
@@ -303,8 +303,8 @@
         birthdate: { required },
         phone: { 
           required,
-          // length: length(11),
-          // firstCharIs: firstCharIs(7),
+          length: length(11),
+          firstCharIs: firstCharIs(7),
         },
         clientGroup: { required },
         clientDoctor: {},

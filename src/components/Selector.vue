@@ -1,8 +1,8 @@
 <template>
   <div class="selector">
-    <label class="selector__label" title="Чтобы выбрать несколько вариантов нажмите Ctrl">
+    <label class="selector__label" :title="title">
       <span class="selector__header">
-        {{ placeholder }}
+        <span class="selector__label-text">{{ placeholder }}</span>
         <span class="selector__star" v-if="required">*</span>
         <small class="selector__error" v-if="v.$error && !v.$required">
           Это поле обязательно для заполнения
@@ -63,6 +63,11 @@
         default: '',
       },
     },
+    data() {
+      return {
+        title: this.multiple ? 'Чтобы выбрать несколько вариантов нажмите Ctrl' : '',
+      };
+    },
     computed: {
       fieldValue: {
         get() {
@@ -90,18 +95,21 @@
       flex-direction: column;
     }
 
+    &__label-text {
+      @include label-text;
+    }
+
     &__star {
       @include required-mark;
     }
 
     &__error {
-      color: #ff0000;
+      @include required-warning;
     }
 
     &__group {
-      margin-top: .7rem;
       padding: .5rem;
-      
+      width: 22rem;
       border: 1px solid $inactive;
       border-radius: 4px;
 

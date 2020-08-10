@@ -2,7 +2,7 @@
   <div class="form-field">
     <label class="form-field__label">
      <span class="form-field__label-header">
-        {{ label }}
+        <span class="form-field__label-text">{{ label }}</span>
         <span class="form-field__star" v-if="required">*</span>
         <small class="form-field__error" v-if="v.$error && !v.$required" >
           Это поле обязательно для заполнения
@@ -87,12 +87,16 @@
       flex-wrap: wrap;
     }
 
+    &__label-text {
+      @include label-text;
+    }
+
     &__star {
       @include required-mark;
     }
 
     &__error {
-      color: #ff0000;
+      @include required-warning;
     }
 
     &__input {

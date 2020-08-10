@@ -29,7 +29,7 @@
 
     &__legend {
       @include field-label;
-      margin-bottom: .5rem;
+      margin-bottom: .7rem;
     }
 
     &__label {     

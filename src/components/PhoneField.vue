@@ -2,7 +2,7 @@
   <div class="phone-field">
     <label class="phone-field__label">
      <span class="phone-field__label-header">
-        {{ label }}
+        <span class="phone-field__label-text">{{ label }}</span>
         <span class="phone-field__star" v-if="required">*</span>
         <small class="phone-field__error" v-show="v.$error && !v.$required">
           Это поле обязательно для заполнения
@@ -89,12 +89,16 @@
       flex-wrap: wrap;
     }
 
+    &__label-text {
+      padding-bottom: 1.5rem;
+    }
+
     &__star {
       @include required-mark;
     }
 
     &__error {
-      color: #ff0000;
+      @include required-warning;
     }
 
     &__input {

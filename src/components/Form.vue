@@ -78,6 +78,10 @@
       />
     </div>
 
+    <div class="form__element">
+      <Checkbox />
+    </div>
+
     <button type="submit">push</button>
   </form>
 </template>
@@ -89,6 +93,7 @@
   import PhoneField from './PhoneField';
   import GenderRadio from './GenderRadio';
   import Selector from './Selector';
+  import Checkbox from './Checkbox';
 
   export default {
     name: 'Form',
@@ -109,7 +114,7 @@
     },
     components: {
       FormField, PhoneField, GenderRadio,
-      Selector,
+      Selector, Checkbox,
     },
     validations: {
       form: {

@@ -44,3 +44,31 @@ $accent: #bc9cff;
     border-color: $hovered-field;
   }
 }
+
+@mixin hide-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@mixin checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $inactive;
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}

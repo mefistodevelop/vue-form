@@ -57,14 +57,16 @@ $accent: #bc9cff;
 
 @mixin checkmark {
   position: absolute;
-  top: 3px;
+  top: -.2rem;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   background: #FFFFFF;
   border-width: 1px;
   border-style: solid;
   border-color: $inactive;
+  border-radius: 50%;
+  
   &::after,
   &::before {
     content: "";

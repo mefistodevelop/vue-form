@@ -45,21 +45,8 @@
     }
 
     &__checkmark {
-      position: absolute;
-      top: -.2rem;
-      left: 0;
-      width: 2rem;
-      height: 2rem;
-      background: #FFFFFF;
-      border-width: 1px;
-      border-style: solid;
-      border-color: $inactive;
-      border-radius: 50%;
-
+      @include checkmark;
       &::after {
-        content: "";
-        position: absolute;
-        display: none;
         top: .3rem;
         left: .3rem;
         width: 1.2rem;
@@ -70,13 +57,7 @@
     }
 
     &__input {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      opacity: 0;
-      cursor: pointer;
+      @include hide-input;
 
       &:checked ~ .gender-radio__checkmark {
         border-color: $hovered-field;

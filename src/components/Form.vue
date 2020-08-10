@@ -246,17 +246,20 @@
     <div class="form__footer">
       <button class="form__button" type="submit">Создать клиента</button>
     </div>
+
+    <Popup :isVisible="isPopupVisible" v-on:close-popup="closePopup" />
   </form>
 </template>
 
 <script>
   import { required } from 'vuelidate/lib/validators';
-  import { length, firstCharIs } from '../utils/validators';
+  // import { length, firstCharIs } from '../utils/validators';
   import FormField from './FormField';
   import PhoneField from './PhoneField';
   import GenderRadio from './GenderRadio';
   import Selector from './Selector';
   import Checkbox from './Checkbox';
+  import Popup from './Popup';
 
   export default {
     name: 'Form',
@@ -285,11 +288,12 @@
         groups: ['VIP', 'Проблемные', 'ОМС'],
         doctors: ['Иванов', 'Захаров', 'Чернышева'],
         documentTypes: ['Паспорт', 'Свидетельство о рождении', 'Вод. удостоверение'],
+        isPopupVisible: false,
       };
     },
     components: {
       FormField, PhoneField, GenderRadio,
-      Selector, Checkbox,
+      Selector, Checkbox, Popup,
     },
     validations: {
       form: {
@@ -299,8 +303,8 @@
         birthdate: { required },
         phone: { 
           required,
-          length: length(11),
-          firstCharIs: firstCharIs(7),
+          // length: length(11),
+          // firstCharIs: firstCharIs(7),
         },
         clientGroup: { required },
         clientDoctor: {},
@@ -318,10 +322,13 @@
       },
     },
     methods: {
+      closePopup() {
+        this.isPopupVisible = false;
+      },
       submit() {
         this.$v.$touch();
         if (this.$v.$invalid) return;
-        alert('submited');
+        this.isPopupVisible = true;
       },
     },
   };
@@ -337,6 +344,7 @@
     background-color: #fff;
 
     &__title {
+      font-size: 3rem;
       color: $font-title;
       text-align: center;
     }

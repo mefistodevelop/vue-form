@@ -4,15 +4,21 @@ $inactive: rgba(31,32,65,.25);
 $hovered-field: rgba(31,32,65,.5);
 $accent-gradient: linear-gradient(180deg,#bc9cff,#8ba4f9);
 $accent: #bc9cff;
+$font-title: #1f2041;
 
 
 //mixins
 
 @mixin field-label {
+  position: relative;
   font-weight: 700;
   font-size: 1.2rem;
   text-transform: uppercase;
-  color: #1f2041;
+  color: $font-title;
+}
+
+@mixin label-text {
+  padding-bottom: 1.5rem;
 }
 
 @mixin label-header {
@@ -25,8 +31,14 @@ $accent: #bc9cff;
   margin: 0 .3rem;
 }
 
+@mixin required-warning {
+  position: absolute;
+  top: 1.3rem;
+  left: 0;
+  color: #ff0000;
+}
+
 @mixin form-field {
-  margin-top: .7rem;
   width: 100%;
   height: 4.4rem;
   padding: 0 1.2rem;

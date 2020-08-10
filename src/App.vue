@@ -23,13 +23,12 @@ export default {
 <style lang="scss" scoped>
   .app {
     &__container {
-      max-width: 1200px;
+      max-width: 90rem;
       width: 100%;
-      height: 100vh;
+      min-height: 100%;
       margin: 0 auto;
       padding: 2rem;
       font-size: 1.6rem;
-      background-color: rgb(163, 228, 222);
     };
   };
 </style>

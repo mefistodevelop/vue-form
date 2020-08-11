@@ -4,7 +4,7 @@
      <span class="form-field__label-header">
         <span class="form-field__label-text">{{ label }}</span>
         <span class="form-field__star" v-if="required">*</span>
-        <small class="form-field__error" v-if="v.$error && !v.$required" >
+        <small class="form-field__error" v-show="v.$error && !v.$required">
           Это поле обязательно для заполнения
         </small>
      </span>
@@ -28,7 +28,7 @@
     props: {
       value: {
         type: String,
-        default: ""
+        default: "",
       },
       v: {
         type: Object,

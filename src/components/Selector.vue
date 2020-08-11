@@ -4,7 +4,7 @@
       <span class="selector__header">
         <span class="selector__label-text">{{ placeholder }}</span>
         <span class="selector__star" v-if="required">*</span>
-        <small class="selector__error" v-if="v.$error && !v.$required">
+        <small class="selector__error" v-show="v.$error && !v.$required">
           Это поле обязательно для заполнения
         </small>
       </span>

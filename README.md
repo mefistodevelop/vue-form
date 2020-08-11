@@ -3,7 +3,8 @@
 Form for creating new client.<br>
 Developed with Vue-CLI<br>
 For styles used CSS preprocessor Sass<br>
-Validation realized with Vuelidate library
+Validation implemented with Vuelidate library
+Deployed on GitHub Pages with gh-pages
 
 ## Project setup
 ```

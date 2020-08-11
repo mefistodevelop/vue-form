@@ -89,16 +89,12 @@
       flex-wrap: wrap;
     }
 
-    &__label-text {
-      padding-bottom: 1.5rem;
-    }
-
     &__star {
       @include required-mark;
     }
 
     &__error {
-      @include required-warning;
+      color: red;
     }
 
     &__input {

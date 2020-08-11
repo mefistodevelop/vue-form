@@ -42,7 +42,7 @@
             </div>
           </div>
 
-          <div class="form__row form__row_left">
+          <div class="form__row form__row_left form__row_custom-height">
             <div class="form__element form__element_left">
               <FormField
                 type="date"
@@ -385,6 +385,11 @@
 
         &_left {
           justify-content: flex-start;
+        }
+
+        &_custom-height {
+          height: 10rem;
+          align-items: flex-end;
         }
       }
 

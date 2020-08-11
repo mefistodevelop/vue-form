@@ -1,5 +1,5 @@
 <template>
-  <form class="form" @submit.prevent="submit">
+  <form class="form" name="new-client" @submit.prevent="submit">
     <h1 class="form__title">Новый клиент</h1>
     <div class="form__wrapper">
       <section class="form__section">
@@ -244,6 +244,7 @@
     </div>
 
     <div class="form__footer">
+      <div class="form__warning" v-show="$v.form.$error">Форма содержит ошибки</div>
       <button class="form__button" type="submit">Создать клиента</button>
     </div>
 
@@ -433,8 +434,14 @@
 
     &__footer {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       margin-bottom: 6rem;
+    }
+
+    &__warning {
+      margin-bottom: 1rem;
+      color: red;
     }
 
     &__button {

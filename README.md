@@ -6,6 +6,8 @@ For styles used CSS preprocessor Sass<br>
 Validation implemented with Vuelidate library
 Deployed on GitHub Pages with gh-pages
 
+Run demo on [GitHub Pages](https://mefistodevelop.github.io/vue-form/)
+
 ## Project setup
 ```
 npm install

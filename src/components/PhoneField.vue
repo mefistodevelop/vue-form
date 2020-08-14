@@ -4,7 +4,7 @@
      <span class="phone-field__label-header">
         <span class="phone-field__label-text">{{ label }}</span>
         <span class="phone-field__star" v-if="required">*</span>
-        <small class="phone-field__error" v-show="v.$error && !v.$required">
+        <small class="phone-field__error" v-show="v.$error && !v.$required && v.length">
           Это поле обязательно для заполнения
         </small>
         <small class="phone-field__error" v-show="!v.length">
